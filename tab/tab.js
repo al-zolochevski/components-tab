@@ -1,11 +1,11 @@
 z('[data-collapse]').on("click", function () {
     var targetId = this.getAttribute("data-collapse");
-    var target = document.getElementById(targetId);
+    var zTarget = z('#' + targetId);
 
-    if (z(target).isVisible()) {
-        z(target).hide();
+    if (zTarget.isVisible()) {
+        zTarget.hide();
     } else {
-        z(target).show();
+        zTarget.show();
     }
 
 });
