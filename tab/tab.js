@@ -1,12 +1,12 @@
-// z('[data-collapse]').on("click", function () {
-//
-// });
-
 function Collapse(buttonElement) {
     var targetId = buttonElement.getAttribute("data-collapse");
-    var zTarget = z('#' + targetId);
+    var target = document.getElementById(targetId);
+    var zTarget = z(target);
 
-    var obj = {
+    return {
+        target: target,
+        zTarget: zTarget,
+
         open: function () {
             zTarget.show();
         },
@@ -17,15 +17,17 @@ function Collapse(buttonElement) {
 
         toggle: function () {
             if (zTarget.isVisible()) {
-                zTarget.hide();
+                this.close();
             } else {
-                zTarget.show();
+                this.open();
             }
         }
     };
-
-    return obj;
 }
 
-var collapse1 = Collapse(z('button')[0]);
+// TODO: resurrect unobtrusive JS
+// z('[data-collapse]').on("click", function () {
+//
+// });
+var collapse1 = Collapse(z('button')[0]); // TODO: new Collapse(...)
 var collapse2 = Collapse(z('button')[1]);
