@@ -47,9 +47,7 @@ var collapse1 = {
     }
 };
 
-z(collapse1.button).on("click", function () {
-    collapse1.open();
-});
+z(collapse1.button).on("click", collapse1.open);
 
 var collapse2 = {
     button: document.getElementById("button2"),
