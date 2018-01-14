@@ -47,18 +47,17 @@ var Collapse = function(button) {
     this.button = button;
     this.target = document.getElementById(button.getAttribute('data-collapse'));
 
-    this.open = function () {
-        z(this.target).show()
-    };
-
-    this.close = function () {
-        z(this.target).hide()
-    };
-
-    // TODO: toggle
-
     z(this.button).on("click", this.open.bind(this));
 };
+
+Collapse.prototype.open = function () {
+    z(this.target).show()
+};
+
+Collapse.prototype.close = function () {
+    z(this.target).hide()
+};
+
 
 var collapse1 = new Collapse(document.getElementById("button1"));
 var collapse2 = new Collapse(document.getElementById("button2"));
