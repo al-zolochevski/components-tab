@@ -38,30 +38,27 @@
 /* Alex L.:
  * 1) конструктор
  * 2) new Collapse()
+ * 3) прототипы
 * */
 
 
 var Collapse = function(button) {
 
-    var target = document.getElementById(button.getAttribute('data-collapse'));
-    var collapse = {
-        button: button,
-        target: target,
+    this.button = button;
+    this.target = document.getElementById(button.getAttribute('data-collapse'));
 
-        open: function () {
-            z(this.target).show()
-        },
-        close: function () {
-            z(this.target).hide()
-        }
-
-        // TODO: toggle
+    this.open = function () {
+        z(this.target).show()
     };
 
-    z(collapse.button).on("click", collapse.open.bind(collapse));
-    
-    return collapse;
+    this.close = function () {
+        z(this.target).hide()
+    };
+
+    // TODO: toggle
+
+    z(this.button).on("click", this.open.bind(this));
 };
 
-var collapse1 = Collapse(document.getElementById("button1"));
-var collapse2 = Collapse(document.getElementById("button2"));
+var collapse1 = new Collapse(document.getElementById("button1"));
+var collapse2 = new Collapse(document.getElementById("button2"));
