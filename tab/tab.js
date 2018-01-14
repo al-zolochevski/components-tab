@@ -58,6 +58,6 @@ Collapse.prototype.close = function () {
     z(this.target).hide()
 };
 
-
-var collapse1 = new Collapse(document.getElementById("button1"));
-var collapse2 = new Collapse(document.getElementById("button2"));
+z("[data-collapse]").elements.forEach(function (button) {
+    new Collapse(button);
+});
