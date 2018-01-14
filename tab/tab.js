@@ -40,9 +40,11 @@
  * 2) new Collapse()
 * */
 
+var button1 = document.getElementById("button1");
+var target1 = document.getElementById(button1.getAttribute('data-collapse'));
 var collapse1 = {
-    button: document.getElementById("button1"),
-    target: document.getElementById("collapse1"),
+    button: button1,
+    target: target1,
 
     open: function () {
         z(this.target).show()
@@ -53,12 +55,15 @@ var collapse1 = {
 
     // TODO: toggle
 };
+z(collapse1.button).on("click", function() {
+    collapse1.open();
+});
 
-z(collapse1.button).on("click", collapse1.open);
-
+var button2 = document.getElementById("button2");
+var target2 = document.getElementById(button2.getAttribute('data-collapse'));
 var collapse2 = {
-    button: document.getElementById("button2"),
-    target: document.getElementById("collapse2"),
+    button: button2,
+    target: target2,
     open: function () {
         z(this.target).show()
     },
@@ -68,3 +73,6 @@ var collapse2 = {
 
     // TODO: toggle
 };
+z(collapse1.button).on("click", function() {
+    collapse1.open();
+});
