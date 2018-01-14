@@ -42,43 +42,22 @@
 * */
 
 
-// var Collapse = function(button) {
-//
-//     this.button = button;
-//     this.target = document.getElementById(button.getAttribute('data-collapse'));
-//
-//     z(this.button).on("click", this.open.bind(this));
-// };
-//
-// Collapse.prototype.open = function () {
-//     z(this.target).show()
-// };
-//
-// Collapse.prototype.close = function () {
-//     z(this.target).hide()
-// };
-//
-//
-// var collapse1 = new Collapse(document.getElementById("button1"));
-// var collapse2 = new Collapse(document.getElementById("button2"));
+var Collapse = function(button) {
 
-class Collapse {
+    this.button = button;
+    this.target = document.getElementById(button.getAttribute('data-collapse'));
 
-    constructor (button) {
-        this.button = button;
-        this.target = document.getElementById(button.getAttribute('data-collapse'));
+    z(this.button).on("click", this.open.bind(this));
+};
 
-        z(this.button).on("click", this.open.bind(this));
-    };
+Collapse.prototype.open = function () {
+    z(this.target).show()
+};
 
-    open () {
-        z(this.target).show()
-    };
+Collapse.prototype.close = function () {
+    z(this.target).hide()
+};
 
-    close () {
-        z(this.target).hide()
-    };
-}
 
 var collapse1 = new Collapse(document.getElementById("button1"));
 var collapse2 = new Collapse(document.getElementById("button2"));
