@@ -40,36 +40,28 @@
  * 2) new Collapse()
 * */
 
-var button1 = document.getElementById("button1");
-var target1 = document.getElementById(button1.getAttribute('data-collapse'));
-var collapse1 = {
-    button: button1,
-    target: target1,
 
-    open: function () {
-        z(this.target).show()
-    },
-    close: function () {
-        z(this.target).hide()
-    }
+var Collapse = function(button) {
 
-    // TODO: toggle
+    var target = document.getElementById(button.getAttribute('data-collapse'));
+    var collapse = {
+        button: button,
+        target: target,
+
+        open: function () {
+            z(this.target).show()
+        },
+        close: function () {
+            z(this.target).hide()
+        }
+
+        // TODO: toggle
+    };
+
+    z(collapse.button).on("click", collapse.open.bind(collapse));
+    
+    return collapse;
 };
 
-z(collapse1.button).on("click", collapse1.open.bind(collapse1));
-
-var button2 = document.getElementById("button2");
-var target2 = document.getElementById(button2.getAttribute('data-collapse'));
-var collapse2 = {
-    button: button2,
-    target: target2,
-    open: function () {
-        z(this.target).show()
-    },
-    close: function () {
-        z(this.target).hide()
-    }
-
-    // TODO: toggle
-};
-z(collapse2.button).on("click", collapse2.open.bind(collapse2));
+var collapse1 = Collapse(document.getElementById("button1"));
+var collapse2 = Collapse(document.getElementById("button2"));
