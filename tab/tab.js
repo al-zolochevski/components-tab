@@ -55,9 +55,8 @@ var collapse1 = {
 
     // TODO: toggle
 };
-z(collapse1.button).on("click", function() {
-    collapse1.open();
-});
+
+z(collapse1.button).on("click", collapse1.open.bind(collapse1));
 
 var button2 = document.getElementById("button2");
 var target2 = document.getElementById(button2.getAttribute('data-collapse'));
@@ -73,6 +72,4 @@ var collapse2 = {
 
     // TODO: toggle
 };
-z(collapse1.button).on("click", function() {
-    collapse1.open();
-});
+z(collapse2.button).on("click", collapse2.open.bind(collapse2));
